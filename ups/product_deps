@@ -23,9 +23,9 @@ defaultqual e20
 # Add the dependent product and version
 
 product          version
-cetbuildtools	 v8_18_09	-	only_for_build
-dunereco         v09_42_03_00
-duneopdet        v09_42_03_00
+cetbuildtools	 v8_20_00	-	only_for_build
+dunereco         v09_56_00d00
+duneopdet        v09_56_00d00
 hep_hpc          v0_14_01
 #hdf5             v1_12_0b
 end_product_list

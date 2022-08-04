@@ -6,7 +6,9 @@
 # use cmake 3.14 or later
 cmake_minimum_required (VERSION 3.19 FATAL_ERROR)
 
-project(duneana VERSION 09.42.03.00 LANGUAGES CXX)
+#project(duneana VERSION 09.48.00.d00 LANGUAGES CXX)
+project(duneana LANGUAGES CXX)
+set(${PROJECT_NAME}_CMAKE_PROJECT_VERSION_STRING 09.56.00d00)
 
 # cetbuildtools contains our cmake modules
 find_package(cetbuildtools REQUIRED)
@@ -36,7 +38,9 @@ find_ups_product( larsim )
 find_ups_product( larevt )
 find_ups_product( larpandora )
 find_ups_product( systematicstools )
-#if(DEFINED ENV{HEP_HPC_DIR} )
+find_package(GENIE REQUIRED EXPORT)
+#find_ups_product( dunepdlegacy )
+
 find_ups_product( clhep )
 find_ups_product( hdf5 )
 find_ups_product( hep_hpc )
@@ -52,8 +56,6 @@ if(DEFINED ENV{HDF5_DIR} )
   endif()
 endif()
 
-
-#endif()
 
 # macros for artdaq_dictionary and simple_plugin
 include(ArtDictionary)
