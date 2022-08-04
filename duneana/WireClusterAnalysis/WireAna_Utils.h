@@ -148,7 +148,7 @@ namespace wireana{
     int begin_index = -1;
     int end_index = -1;
     int planeid = -1;
-    int view = -1; //U,V,W,Z,Y,X,3D,unknown
+    int view = -1;
     bool truthFromNeutrino=false;
     double sum = 0;
     double abs_sum = 0;
@@ -169,11 +169,10 @@ namespace wireana{
 
     std::vector< roi > ROIs;
     std::vector< std::pair< int, std::pair<float,float> > > pdg_energy_list;
-    std::vector< std::pair< int, std::pair<float,float> > > trkID_sum; //(id,(nelectron,energy))
+    std::vector< std::pair< int, std::pair<float,float> > > trkID_sum; 
     std::string label;
     TLorentzVector momentum_part;
     TLorentzVector momentum_neutrino;
-    TLorentzVector int_vtx;
     std::vector<double> array;
     int width_channels;
     int width_ticks;
@@ -554,7 +553,7 @@ class wireana::ROIMatcher
   ~ROIMatcher(){}
 
   void Reset();
-  void SetData( PlaneViewROIClusterMap pvrm ) { m_planeViewRoiClusterMap = pvrm; }
+  void SetData( PlaneViewROIClusterMap pvrm ) { m_planeViewRoillusterMap = pvrm; }
   void SetMatchDistance( float dist = 20 /*mm*/ ) { m_minMatchDistance = dist ;}
   void MatchROICluster();
   void CleanDuplicates( float delta = 0. );
@@ -576,7 +575,7 @@ class wireana::ROIMatcher
 
   geo::GeometryCore const* fGeometry;
 
-  PlaneViewROIClusterMap m_planeViewRoiClusterMap;
+  PlaneViewROIClusterMap m_planeViewRoillusterMap;
   std::vector<matchedroicluster> m_matchedclusters; 
 
   double m_minMatchDistance;
@@ -585,7 +584,7 @@ class wireana::ROIMatcher
 void 
 wireana::ROIMatcher::Reset()
 {
-  m_planeViewRoiClusterMap.clear();
+  m_planeViewRoillusterMap.clear();
   m_matchedclusters.clear();
 }
 
@@ -721,7 +720,7 @@ wireana::ROIMatcher::MatchROICluster()
 {
   m_matchedclusters.clear();
 
-  for( auto& pvv: m_planeViewRoiClusterMap )//plane: (view, vector<roicluster>)
+  for( auto& pvv: m_planeViewRoillusterMap )//plane: (view, vector<roicluster>)
   {
     int planeid = pvv.first;
     //u=0, v=1, z=2

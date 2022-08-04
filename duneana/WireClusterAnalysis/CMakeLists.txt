@@ -28,8 +28,6 @@ art_make(BASENAME_ONLY
 
          cetlib::cetlib cetlib_except
          ROOT_BASIC_LIB_LIST
-         hep_hpc_hdf5
-         HDF5
 )
 
 install_headers()
